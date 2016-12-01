@@ -37,8 +37,8 @@ def extractSNMP(configresponse):
     return extractString(configresponse, 0x18)
 
 def extractAdminPassword(passwordresponse):
-    print "Debug: hexdump"
-    hexdump.hexdump(passwordresponse)
+    #print "Debug: hexdump"
+    #hexdump.hexdump(passwordresponse)
     return extractString(passwordresponse, 200)
 
 def login(sock, server_addr):
@@ -67,12 +67,12 @@ def login(sock, server_addr):
     return
 
 def sendPacket(data, sock, server_addr, Debug = True):
-    print "Sending:"
-    hexdump.hexdump(data)
+    #print "Sending:"
+    #hexdump.hexdump(data)
     sent = sock.sendto(data, server_addr)
     data,server = sock.recvfrom(4096)
-    print "Received:"
-    hexdump.hexdump(data)
+    #print "Received:"
+    #hexdump.hexdump(data)
     return data
 
 
